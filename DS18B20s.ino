@@ -28,7 +28,7 @@ DallasTemperature sensors(&oneWire);
 
 void setup(void)
 {
-  Serial.begin();
+  Serial.begin(115200);
   sensors.begin();
 }
 void loop(void)
