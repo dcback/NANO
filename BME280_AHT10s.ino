@@ -27,7 +27,7 @@ AHT10 myAHT10(AHT10_ADDRESS_0X38);
 
 void setup()
 {
-  Serial.begin(9600); 
+  Serial.begin(115200); 
   
   bme.begin();  
   bme.setTempCal(-1.0);
