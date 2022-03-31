@@ -1,0 +1,49 @@
+#define led1        2              
+#define led2        3              
+#define led3        4              
+
+unsigned long previousMillis = 0;
+unsigned long currentMillis = 0;
+const long interval = 500;            // interval at which to blink (milliseconds)
+
+void setup()
+{
+  Serial.begin(115200);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+}
+
+void loop()
+{
+  currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval)
+  {
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+  }
+
+  if (currentMillis - previousMillis >= interval + 500)
+  {
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+  }
+
+  if (currentMillis - previousMillis >= interval + 1000)
+  {
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, HIGH);
+  }
+
+  if (currentMillis - previousMillis >= interval + 1500)
+  {
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    previousMillis = currentMillis;
+  }
+}
